@@ -14,12 +14,7 @@ provider "aws" {
   region  = "ca-central-1"
 }
 
-data "template_file" "ec2_user_data" {
-  template = file("${path.module}/bootstrap.txt")
-
-}
-
-resource "aws_instance" "app_server" {
+resource "aws_instance" "web_server" {
   ami           = "ami-07625b74039b1a58b"
   instance_type = "t2.micro"
   key_name      = "devOps-task"
@@ -28,10 +23,9 @@ resource "aws_instance" "app_server" {
   tags = {
     Name = "Web_Server_Dev"
   }
-
 }
 
-resource "aws_instance" "app_server2" {
+resource "aws_instance" "web_server2" {
   ami           = "ami-07625b74039b1a58b"
   instance_type = "t2.micro"
   key_name      = "devOps-task"
@@ -40,10 +34,9 @@ resource "aws_instance" "app_server2" {
   tags = {
     Name = "Web_Server_PreProd"
   }
-
 }
 
-resource "aws_instance" "app_server3" {
+resource "aws_instance" "web_server3" {
   ami           = "ami-07625b74039b1a58b"
   instance_type = "t2.micro"
   key_name      = "devOps-task"
@@ -52,5 +45,4 @@ resource "aws_instance" "app_server3" {
   tags = {
     Name = "Web_Server_Prod"
   }
-
 }
