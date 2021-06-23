@@ -14,11 +14,6 @@ provider "aws" {
   region  = "ca-central-1"
 }
 
-data "template_file" "ec2_user_data" {
-  template = file("${path.module}/bootstrap.txt")
-
-}
-
 resource "aws_instance" "app_server" {
   ami           = "ami-07625b74039b1a58b"
   instance_type = "t2.micro"
