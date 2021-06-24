@@ -15,34 +15,14 @@ provider "aws" {
 }
 
 resource "aws_instance" "web_server" {
-  ami           = "ami-07625b74039b1a58b"
-  instance_type = "t2.micro"
-  key_name      = "devOps-task"
-  user_data     = data.template_file.ec2_user_data.template
+  ami                    = "ami-07625b74039b1a58b"
+  instance_type          = "t2.micro"
+  key_name               = "devOps-task"
+  user_data              = data.template_file.ec2_user_data.template
+  vpc_security_group_ids = [aws_security_group.web_server_sg.id]
 
   tags = {
-    Name = "Web_Server_Dev"
+    Name = "Web_Server"
   }
 }
 
-resource "aws_instance" "web_server2" {
-  ami           = "ami-07625b74039b1a58b"
-  instance_type = "t2.micro"
-  key_name      = "devOps-task"
-  user_data     = data.template_file.ec2_user_data.template
-
-  tags = {
-    Name = "Web_Server_PreProd"
-  }
-}
-
-resource "aws_instance" "web_server3" {
-  ami           = "ami-07625b74039b1a58b"
-  instance_type = "t2.micro"
-  key_name      = "devOps-task"
-  user_data     = data.template_file.ec2_user_data.template
-
-  tags = {
-    Name = "Web_Server_Prod"
-  }
-}
