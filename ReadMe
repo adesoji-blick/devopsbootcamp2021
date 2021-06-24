@@ -1,5 +1,7 @@
+
 we provisioned aws cli... using aws configure command
 we used terraform to provision the web servers 
 we partitioned the code base into segments
 we persisted our terraform state files to s3 backend
 we commited the updates to github
+
