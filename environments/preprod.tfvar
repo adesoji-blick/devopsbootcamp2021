@@ -1,0 +1,3 @@
+tag_name = "pre-production-box"
+bucket = "ijoseda-devops"
+key = "Devops2021/DevopsTask/pre-production"
