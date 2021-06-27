@@ -1,5 +1,5 @@
-resource "aws_security_group" "web_server_sg" {
-  name        = "web_server_security_group"
+resource "aws_security_group" "tool_server_sg" {
+  name        = "tool_server_security_group"
   description = "Allow SSH and HTTP inbound traffic"
 
   ingress {
