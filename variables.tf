@@ -1,19 +1,29 @@
 variable "ssh_key" {
-  description = "this is used for logging in remotely"
-  default     = "devOps-task"
+  default = "devOps-Project"
 }
+
 variable "instance_type" {
   default = "t2.micro"
 }
+
 variable "ami" {
   default = "ami-07625b74039b1a58b"
 }
-variable "tag_name" {
-  default = "Web_Server_2021"
+
+variable "ubuntu_ami" {
+  default = "ami-0ce3f090463976fab"
 }
-variable "bucket" {
-  default = "ijoseda-devops"
+
+variable "tags_environment" {
+  default = "dev"
 }
-variable "key" {
-  default = "Devops2021/DevopsTask/wk2dy5-statefile"
+
+variable "tags_name1" {
+  default = "tool_server_1"
+}
+variable "tags_name2" {
+  default = "tool_server_2"
+}
+variable "tags_name3" {
+  default = "build_server"
 }

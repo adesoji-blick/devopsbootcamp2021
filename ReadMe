@@ -1,4 +1,7 @@
-Security Groups
-VPC
-Variables
+current challenges:
+unable to output packerAMI iD to Terraform
+I want to write a shell script that would run packer (build AMI) and then run terraform so don't have to run cmds manually
+I am unable to build AmazonLinux2 AMI with Packer [had to use bootstrap files]
 
+clarification:
+Am I installing Grafana on my Ubuntu [build] machine? the task said to install Jenkins

@@ -1,3 +1,14 @@
 #!/bin/bash
-sudo amazon-linux-extras install nginx1 -y
-sudo systemctl start nginx
+
+# installing GIT #
+sudo yum install git -y
+
+# installing Java OpenJDK 11 #
+curl https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz -O
+tar xvf openjdk-11*_bin.tar.gz
+
+# Installing Ansible #
+sudo amazon-linux-extras install ansible2 -y
+
+
+
