@@ -1,19 +1,35 @@
 variable "ssh_key" {
-  description = "this is used for logging in remotely"
-  default     = "devOps-task"
+  default = "devOps-Project"
 }
+
 variable "instance_type" {
   default = "t2.micro"
 }
+
+variable "instance_count" {
+  default = "3"
+}
+
 variable "ami" {
-  default = "ami-07625b74039b1a58b"
+  default = ["ami-0eac8bf7bc750f246", "ami-01a29514b932339ee", "ami-0332e42a1676a2ed2"]
 }
+
+variable "subnet_id" {
+  default = ["subnet-043d2c27c0fd77ffa", "subnet-043d2c27c0fd77ffa", "subnet-0dc91894a5c94b6a7"]
+}
+
+# variable "sg_id" {
+#   default = ["sg-06f7394d186ffd045", "sg-06f7394d186ffd045", "sg-06f7394d186ffd045"]
+# }
+
 variable "tag_name" {
-  default = "Web_Server_2021"
+  default = ["tool_sev_1", "tool_sev_2", "build_sev"]
 }
-variable "bucket" {
-  default = "ijoseda-devops"
+
+variable "environment" {
+  default = "development"
 }
-variable "key" {
-  default = "Devops2021/DevopsTask/wk2dy5-statefile"
+
+variable "role" {
+  default = "devops_team"
 }
