@@ -34,7 +34,7 @@ resource "aws_subnet" "subnet_3" {
   availability_zone = "ca-central-1a"
 
   tags = {
-    Name = "subet_3"
+    Name = "subnet_3"
   }
 }
 

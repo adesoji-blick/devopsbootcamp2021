@@ -6,24 +6,30 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "instance_count" {
+  default = "3"
+}
+
 variable "ami" {
-  default = "ami-07625b74039b1a58b"
+  default = ["ami-0eac8bf7bc750f246", "ami-01a29514b932339ee", "ami-0332e42a1676a2ed2"]
 }
 
-variable "ubuntu_ami" {
-  default = "ami-0ce3f090463976fab"
+variable "subnet_id" {
+  default = ["subnet-043d2c27c0fd77ffa", "subnet-043d2c27c0fd77ffa", "subnet-0dc91894a5c94b6a7"]
 }
 
-variable "tags_environment" {
-  default = "dev"
+# variable "sg_id" {
+#   default = ["sg-06f7394d186ffd045", "sg-06f7394d186ffd045", "sg-06f7394d186ffd045"]
+# }
+
+variable "tag_name" {
+  default = ["tool_sev_1", "tool_sev_2", "build_sev"]
 }
 
-variable "tags_name1" {
-  default = "tool_server_1"
+variable "environment" {
+  default = "development"
 }
-variable "tags_name2" {
-  default = "tool_server_2"
-}
-variable "tags_name3" {
-  default = "build_server"
+
+variable "role" {
+  default = "devops_team"
 }

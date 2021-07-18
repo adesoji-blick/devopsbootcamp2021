@@ -1,12 +1,3 @@
-packer {
-  required_plugins {
-    amazon = {
-      version = ">= 0.0.2"
-      source  = "github.com/hashicorp/amazon"
-    }
-  }
-}
-
 source "amazon-ebs" "ubuntu" {
   ami_name      = "ubuntu-ami2"
   instance_type = "t2.micro"
@@ -21,6 +12,9 @@ source "amazon-ebs" "ubuntu" {
     owners      = ["099720109477"]
   }
   ssh_username = "ubuntu"
+  tags = {
+    Name = "packer-ubuntu-ami"
+  }
 }
 
 build {

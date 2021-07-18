@@ -13,46 +13,21 @@ provider "aws" {
   region  = "ca-central-1"
 }
 
-resource "aws_instance" "tool_server1" {
-  ami                    = var.ami
+resource "aws_instance" "mini_project" {
+  ami                    = element(var.ami, count.index)
   instance_type          = var.instance_type
+  count                  = var.instance_count
   key_name               = var.ssh_key
-  subnet_id              = aws_subnet.subnet_1.id
-  vpc_security_group_ids = [aws_security_group.tool_server_sg.id]
-  user_data              = data.template_file.ec2_user_data.template
+  subnet_id              = element(var.subnet_id, count.index)
+  vpc_security_group_ids = ["sg-06f7394d186ffd045", "sg-06f7394d186ffd045", "sg-06f7394d186ffd045"]
+  # subnet_id     = "${aws_subnet.subnet_1.id}, ${aws_subnet.subnet_1.id}, ${aws_subnet.subnet_2.id}"
+  # vpc_security_group_ids     = element(var.sg_id, count.index)
+  # vpc_security_group_ids = ["aws_security_group.tool_server_sg.id", "aws_security_group.tool_server_sg.id", "aws_security_group.build_server_sg.id"]
 
   tags = {
-    Name        = var.tags_name1
-    Environment = var.tags_environment
-    Role        = "developer1"
-  }
-}
-
-resource "aws_instance" "tool_server2" {
-  ami                    = var.ami
-  instance_type          = var.instance_type
-  key_name               = var.ssh_key
-  subnet_id              = aws_subnet.subnet_1.id
-  vpc_security_group_ids = [aws_security_group.tool_server_sg.id]
-  user_data              = data.template_file.ec2_user_data_2.template
-
-  tags = {
-    Name        = var.tags_name2
-    Environment = var.tags_environment
-    Role        = "developer2"
-  }
-}
-
-resource "aws_instance" "build_server" {
-  ami                    = var.ubuntu_ami
-  instance_type          = var.instance_type
-  key_name               = var.ssh_key
-  subnet_id              = aws_subnet.subnet_2.id
-  vpc_security_group_ids = [aws_security_group.build_server_sg.id]
-
-  tags = {
-    Name        = var.tags_name3
-    Environment = var.tags_environment
-    Role        = "Provisioner"
+    # Name        = "Tool-Server${count.index + 1}"
+    Name        = element(var.tag_name, count.index)
+    environment = "${var.environment}"
+    role        = "${var.role}"
   }
 }
