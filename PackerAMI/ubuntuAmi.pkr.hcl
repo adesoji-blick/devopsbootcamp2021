@@ -1,5 +1,5 @@
 source "amazon-ebs" "ubuntu" {
-  ami_name      = "ubuntu-ami2"
+  ami_name      = "ubuntu-ami"
   instance_type = "t2.micro"
   region        = "ca-central-1"
   source_ami_filter {

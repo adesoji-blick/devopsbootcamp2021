@@ -1,26 +1,30 @@
-variable "ssh_key" {
-  default = "devOps-Project"
+variable "region" {
+  default = "ca-central-1"
 }
+
+variable "profile" {
+  default = "default"
+}
+
+variable "ssh_key" {
+  default = "devOps-task"
+}
+
+# variable "ami_filter" {
+#   default = ["packer-amazon-linux-ami1", "packer-amazon-linux-ami2", "packer-ubuntu-ami"]
+# }
+
+# variable "ami" {
+#   default = "ami-07625b74039b1a58b"
+# }
 
 variable "instance_type" {
   default = "t2.micro"
 }
 
 variable "instance_count" {
-  default = "3"
+  default = "1"
 }
-
-variable "ami" {
-  default = ["ami-0eac8bf7bc750f246", "ami-01a29514b932339ee", "ami-0332e42a1676a2ed2"]
-}
-
-variable "subnet_id" {
-  default = ["subnet-043d2c27c0fd77ffa", "subnet-043d2c27c0fd77ffa", "subnet-0dc91894a5c94b6a7"]
-}
-
-# variable "sg_id" {
-#   default = ["sg-06f7394d186ffd045", "sg-06f7394d186ffd045", "sg-06f7394d186ffd045"]
-# }
 
 variable "tag_name" {
   default = ["tool_sev_1", "tool_sev_2", "build_sev"]

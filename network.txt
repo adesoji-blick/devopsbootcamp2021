@@ -31,7 +31,7 @@ resource "aws_subnet" "subnet_2" {
 resource "aws_subnet" "subnet_3" {
   vpc_id            = aws_vpc.training_vpc.id
   cidr_block        = "10.0.2.0/24"
-  availability_zone = "ca-central-1a"
+  availability_zone = "ca-central-1d"
 
   tags = {
     Name = "subnet_3"
