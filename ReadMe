@@ -1,0 +1,18 @@
+cd /PackerAMI:
+Packer init .
+Packer Build .
+
+cd ..
+terraform init
+terraform validate
+terraform apply --auto-approve
+
+ssh -i ~/[private-key.pem] ec2-user@[tool-server.ip]
+mkdir ansible-task
+cd ansible- task
+vim myhosts
+[inset hosts as group and individual ips]
+vim playbook.yml
+[copy script to install nodeJS and Java]
+
+ansible-playbook -i myhosts playbook3.yml
