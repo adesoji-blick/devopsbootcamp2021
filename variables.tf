@@ -7,7 +7,7 @@ variable "profile" {
 }
 
 variable "ssh_key" {
-  default = "devOps-Project"
+  default = "devOps-task"
 }
 
 variable "instance_type" {
@@ -15,7 +15,7 @@ variable "instance_type" {
 }
 
 variable "instance_count" {
-  default = "2"
+  default = "3"
 }
 
 variable "ami_filter" {
@@ -23,11 +23,11 @@ variable "ami_filter" {
 }
 
 variable "tag_name" {
-  default = ["java-server", "NodeJS-server"]
+  default = ["App Server", "Web Server", "Database Server"]
 }
 
 variable "tag_name_1" {
-  default = "tool-server"
+  default = "Tool Server"
 }
 
 variable "environment" {
@@ -38,38 +38,3 @@ variable "role" {
   default = "devops_team"
 }
 
-# variable "sg_count" {
-#   default = "2"
-# }
-
-# variable "subnet_cidr_block" {
-#   default = ["10.0.0.0/24", "10.0.1.0/24", "10.0.2.0/24"]
-# }
-
-# variable "rt_cidr_block" {
-#   default = "0.0.0.0/24"
-# }
-
-# variable "sg_cidr_block" {
-#   default = "0.0.0.0/0"
-# }
-
-# variable "availability_zone" {
-#   default = ["ca-central-1a", "ca-central-1b", "ca-central-1a"]
-# }
-
-# variable "sg_name" {
-#   default = ["tool_server_sg1", "tool_server_sg2", "build_server_sg"]
-# }
-
-# variable "ingress_protocol" {
-#   default = "tcp"
-# }
-
-# variable "egress_protocol" {
-#   default = "-1"
-# }
-
-# variable "port_id" {
-#   default = ["80", "80", "8080"]
-# }

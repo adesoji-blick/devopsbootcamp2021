@@ -1,0 +1,31 @@
+- hosts: all
+  tasks:
+    - name: create common directories
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - /home/ec2-user/packages
+        - /home/ec2-user/config
+
+- hosts: apps
+  tasks:
+    - name: create app directory
+      file:
+        path: /home/ec2-user/apps
+        state: directory
+
+- hosts: web
+  tasks:
+    - name: create app directory
+      file:
+        path: /home/ec2-user/web
+        state: directory
+
+
+- hosts: db
+  tasks:
+    - name: create app directory
+      file:
+        path: /home/ec2-user/db
+        state: directory
