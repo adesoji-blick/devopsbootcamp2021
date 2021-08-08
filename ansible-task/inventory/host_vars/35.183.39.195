@@ -8,3 +8,6 @@ packages_to_install:
 
 node_type: web
 node_env: Development
+
+website_name: Blick.ca
+orders: DevOps Consultation

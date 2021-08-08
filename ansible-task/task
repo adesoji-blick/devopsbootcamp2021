@@ -59,3 +59,18 @@ echo -e "\e[1;32m This is an App machine, logged on at $(date) \e[0m \n\e[1;31m 
 echo -e "\e[1;32m This is a Tool machine running ANSIBLE, logged on at $(date) \e[0m \n\e[1;31m  Please be careful, this a production node ! ! ! "
 
 ansible-task]$ ansible-playbook -i inventory/hosts playbooks/playbook.yml -C
+
+Ctrl R - Ansible reverse search
+
+<html>
+<title>
+<b> This is "{{ website_name }}" website </b>
+<p>
+You can order for "{{ orders }}" </p>
+
+</title>
+</html>
+
+
+This is "{{ website_name }}" website
+You can order for "{{ orders }}"

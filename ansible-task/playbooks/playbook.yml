@@ -31,3 +31,21 @@
         owner: ec2-user
         group: ec2-user
         mode: '0644'
+
+- hosts: web
+  tasks:
+    - name: start httpd/web service
+      tags: start_web_service
+      become: True
+      service:
+        name: httpd
+        state: started
+    - name: serve website content for web
+      tags: web_content_create
+      become: True
+      template:
+        src: ~/ansible-task/templates/web_content.j2
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: '0644'

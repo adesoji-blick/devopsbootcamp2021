@@ -8,3 +8,5 @@ packages_to_install:
 
 node_type: application
 node_env: Development
+
+db_password: TopSecretAccess
