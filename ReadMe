@@ -1,18 +1,12 @@
-cd /PackerAMI:
-Packer init .
-Packer Build .
+week 4 task
+ansible-playbook -i inventory/hosts playbooks/playbook.yml -C
+ansible-vault encrypt_string --vault-id dev@vim /home/ec2-user/.secure 'xxxxxxxxxxx' --name 'db_password'
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory/hosts playbooks/playbook.yml --vault-id dev@/home/ec2-user/.secure
 
-cd ..
-terraform init
-terraform validate
-terraform apply --auto-approve
+mkdir roles > cd roles > ansible-galaxy init common
+mv template.j2 roles/common/template/main.yml
+cp tasks roles/common/task/main.yml
+cp defaults roles/common/defaults/main.yml
+set defaults in roles/common/vars/main.yml
 
-ssh -i ~/[private-key.pem] ec2-user@[tool-server.ip]
-mkdir ansible-task
-cd ansible- task
-vim myhosts
-[inset hosts as group and individual ips]
-vim playbook.yml
-[copy script to install nodeJS and Java]
-
-ansible-playbook -i myhosts playbook3.yml
+ANSIBLE_HOST_KEY_CHECKING=False ANSIBLE_ROLES_PATH=/home/ec2-user/ansible-task/roles ansible-playbook -i inventory/hosts playbooks/roles.yml --check

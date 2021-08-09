@@ -6,7 +6,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "ijoseda-devops"
-    key    = "Devops2021/DevopsProject/week3project-statefile"
+    key    = "Devops2021/DevopsProject/week4-statefile"
     region = "ca-central-1"
   }
 }

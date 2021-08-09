@@ -1,0 +1,78 @@
+Asked to provision 4 machines
+
+1. tool server [ Ansible installed]
+
+2. App server
+
+3. Web Server
+
+4. Database Server
+
+set up specific directories on the machines
+  every machine should have 
+    /home/ec2-user/packages
+    /home/ec2-user/config
+       App-Server
+         /home/ec2-user/apps
+       Web-Server
+         /home/ec2-user/Web
+       Database-Server
+         /home/ec2-user/database
+
+gather_facts
+
+install necessary packages
+all:
+   git
+apps:
+   java [jdk]
+web:
+   httpd [apache web server]
+database;
+   mysql /mariadb
+
+
+
+setup important file and welcome messages
+
+apps:
+   confirguration file - which has database connection details including password
+
+   config.properties
+   ==================
+   app.name=testapp
+   db.name=db.xyz
+   db.password=xxyyyzzzz
+
+web
+  index file for the web server: serve a bespoke content
+
+
+
+
+install the necessary services
+
+
+ANSIBLE_HOST_KEY_CHECKING=False ansible -m ping -i ~/ansible-task/hosts all
+
+echo -e "\e[1;32m This is an App machine, logged on at $(date) \e[0m \n\e[1;31m  Please be careful, this a production node ! ! ! "
+echo -e "\e[1;32m This is a Tool machine running ANSIBLE, logged on at $(date) \e[0m \n\e[1;31m  Please be careful, this a production node ! ! ! "
+
+ansible-task]$ ansible-playbook -i inventory/hosts playbooks/playbook.yml -C
+ansible-vault encrypt_string --vault-id dev@vim /home/ec2-user/.secure 'TopSecretAccessPassword' --name 'db_password'
+ansible-playbook -i inventory/hosts playbooks/playbook.yml --vault-id dev@/home/ec2-user/.secure
+
+Ctrl R - Ansible reverse search
+
+<html>
+<title>
+<b> This is "{{ website_name }}" website </b>
+<p>
+You can order for "{{ orders }}" </p>
+
+</title>
+</html>
+
+
+This is "{{ website_name }}" website
+You can order for "{{ orders }}"
