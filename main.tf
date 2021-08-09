@@ -9,7 +9,7 @@ terraform {
 }
 
 resource "aws_instance" "wk3project" {
-  ami           = data.aws_ami.packer-ami.id
+  ami           = var.ami
   instance_type = var.instance_type
   key_name      = var.ssh_key
   user_data     = data.template_file.ansible_installation.template
@@ -27,7 +27,7 @@ resource "aws_instance" "wk3project" {
 module "web-server" {
   source         = "./modules"
   instance_count = var.instance_count
-  ami_id         = data.aws_ami.packer-ami.id
+  ami_id         = var.ami
   key            = var.ssh_key
   instance_type  = var.instance_type
   name           = var.tag_name
