@@ -6,6 +6,10 @@ variable "profile" {
   default = "default"
 }
 
+variable "ami" {
+  default = "ami-07625b74039b1a58b"
+}
+
 variable "ssh_key" {
   default = "devOps-task"
 }
