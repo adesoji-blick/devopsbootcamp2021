@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+        environment {
+            AWS_ACCESS_KEY_ID     = credentials ('AWS_ACCESS_KEY_ID')
+            AWS_SECRET_ACCESS_KEY = credentials ('AWS_SECRET_ACCESS_KEY')
+            AWS_DEFAULT_REGION    = credentials ('AWS_DEFAULT_REGION')
+        } 
     stages {
         stage('Terraform Code Download') {
             steps {
@@ -11,11 +15,6 @@ pipeline {
             }
         }
         stage('Run Terraform Init') {
-        environment {
-            AWS_ACCESS_KEY_ID     = credentials ('AWS_ACCESS_KEY_ID')
-            AWS_SECRET_ACCESS_KEY = credentials ('AWS_SECRET_ACCESS_KEY')
-            AWS_DEFAULT_REGION    = credentials ('AWS_DEFAULT_REGION')
-        }    
             steps {
                 // Initialize terraform backend
                 sh "printenv"
@@ -25,10 +24,7 @@ pipeline {
         stage('Run Terraform Plan') {
             steps {
                 // Run terraform plan
-                sh "export AWS_ACCESS_KEY_ID='AKIA2BIKEJVYVNAPU2EN' \
-                && export AWS_SECRET_ACCESS_KEY='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' \
-                && export AWS_DEFAULT_REGION='ca-central-1' \
-                && terraform plan"
+                sh "terraform plan"
             }
         }
         stage('Get Approval') {
@@ -41,10 +37,7 @@ pipeline {
         stage('Apply Terraform Code') {
             steps {
                 // Run terraform apply
-                sh "export AWS_ACCESS_KEY_ID='AKIA2BIKEJVYVNAPU2EN' \
-                && export AWS_SECRET_ACCESS_KEY='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' \
-                && export AWS_DEFAULT_REGION='ca-central-1' \
-                && terraform apply --auto-approve"
+                sh "terraform apply --auto-approve"
             }
         }
     }
