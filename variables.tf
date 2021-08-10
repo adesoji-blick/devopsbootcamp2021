@@ -27,7 +27,7 @@ variable "ami_filter" {
 }
 
 variable "tag_name" {
-  default = ["App Server", "Web Server", "Database Server"]
+  default = ["Beta Server", "FIT Server", "SIT Server"]
 }
 
 variable "tag_name_1" {
