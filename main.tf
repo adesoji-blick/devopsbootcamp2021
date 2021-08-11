@@ -8,7 +8,7 @@ terraform {
   required_version = ">= 0.14.9"
 }
 
-resource "aws_instance" "wk3project" {
+resource "aws_instance" "tool-server" {
   ami           = var.ami
   instance_type = var.instance_type
   key_name      = var.ssh_key
